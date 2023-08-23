@@ -1,0 +1,7 @@
+{"ipaddress": "127.0.0.1",
+ "port": 52850,
+ "status.txt": "status.txt",
+ "status.json": "status.json",
+ "serverid_12asciibytes": "conductor v1",
+ "scripts.json": "scripts.json"
+}

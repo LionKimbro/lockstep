@@ -1,0 +1,365 @@
+{
+  "0": {
+    "TITLE": "test_connecting",
+    "CREATED": 1688934117,
+    "COMMANDS": [
+      [
+        "RESET"
+      ],
+      [
+        "CLIENT",
+        0
+      ],
+      [
+        "CONN"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [],
+          [
+            {
+              "CONN": 0,
+              "IPADDR": "100.100.100.100",
+              "PORT": 1045
+            }
+          ],
+          []
+        ],
+        {}
+      ],
+      [
+        "LOOPS"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 0,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          []
+        ],
+        {
+          "0": {
+            "CONNID": 0,
+            "IDENTIFICATION": null,
+            "VERSION": null,
+            "IPADDR": "100.100.100.100",
+            "PORT": 1045,
+            "CONNECTEDAT": 1688936040
+          }
+        }
+      ]
+    ]
+  },
+  "1": {
+    "TITLE": "test_disconnecting",
+    "CREATED": 1688934325,
+    "COMMANDS": [
+      [
+        "RESET"
+      ],
+      [
+        "CLIENT",
+        0
+      ],
+      [
+        "CONN"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [],
+          [
+            {
+              "CONN": 0,
+              "IPADDR": "100.100.100.100",
+              "PORT": 1045
+            }
+          ],
+          []
+        ],
+        {}
+      ],
+      [
+        "LOOPS"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 0,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          []
+        ],
+        {
+          "0": {
+            "CONNID": 0,
+            "IDENTIFICATION": null,
+            "VERSION": null,
+            "IPADDR": "100.100.100.100",
+            "PORT": 1045,
+            "CONNECTEDAT": 1688936040
+          }
+        }
+      ],
+      [
+        "DISCONN"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 0,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          [
+            {
+              "CONN": 0
+            }
+          ]
+        ],
+        {
+          "0": {
+            "CONNID": 0,
+            "IDENTIFICATION": null,
+            "VERSION": null,
+            "IPADDR": "100.100.100.100",
+            "PORT": 1045,
+            "CONNECTEDAT": 1688936040
+          }
+        }
+      ],
+      [
+        "LOOPS"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 0,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          []
+        ],
+        {}
+      ]
+    ]
+  },
+  "2": {
+    "TITLE": "test_two_connections",
+    "CREATED": 1688935011,
+    "COMMANDS": [
+      [
+        "RESET"
+      ],
+      [
+        "REM",
+        "connecting clients 1 & 2"
+      ],
+      [
+        "CLIENT",
+        1
+      ],
+      [
+        "CONN"
+      ],
+      [
+        "CLIENT",
+        2
+      ],
+      [
+        "CONN"
+      ],
+      [
+        "REM",
+        "verifying pre"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [],
+          [
+            {
+              "CONN": 1,
+              "IPADDR": "200.200.200.200",
+              "PORT": 39454
+            },
+            {
+              "CONN": 2,
+              "IPADDR": "127.0.0.1",
+              "PORT": 453323
+            }
+          ],
+          []
+        ]
+      ],
+      [
+        "LOOPS"
+      ],
+      [
+        "REM",
+        "verifying post"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 1,
+              "MSG": "A1conductor v1"
+            },
+            {
+              "CONN": 2,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          []
+        ]
+      ],
+      [
+        "REM",
+        "disconnecting clients 1 & 2"
+      ],
+      [
+        "CLIENT",
+        1
+      ],
+      [
+        "DISCONN"
+      ],
+      [
+        "REM",
+        "verify pre"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 1,
+              "MSG": "A1conductor v1"
+            },
+            {
+              "CONN": 2,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          [
+            {
+              "CONN": 1
+            }
+          ]
+        ]
+      ],
+      [
+        "LOOPS"
+      ],
+      [
+        "REM",
+        "verify post"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 1,
+              "MSG": "A1conductor v1"
+            },
+            {
+              "CONN": 2,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          []
+        ]
+      ],
+      [
+        "CLIENT",
+        2
+      ],
+      [
+        "DISCONN"
+      ],
+      [
+        "REM",
+        "verify pre"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 1,
+              "MSG": "A1conductor v1"
+            },
+            {
+              "CONN": 2,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          [
+            {
+              "CONN": 2
+            }
+          ]
+        ]
+      ],
+      [
+        "LOOPS"
+      ],
+      [
+        "REM",
+        "verify post"
+      ],
+      [
+        "CORRECT",
+        [
+          [],
+          [
+            {
+              "CONN": 1,
+              "MSG": "A1conductor v1"
+            },
+            {
+              "CONN": 2,
+              "MSG": "A1conductor v1"
+            }
+          ],
+          [],
+          []
+        ]
+      ]
+    ]
+  }
+}

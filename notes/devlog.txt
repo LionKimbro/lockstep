@@ -1,0 +1,273 @@
+tag: Development Journal Entries
+date: 2023-07-10
+
+2023-08-22 -- notes moved to Factory repository system, github
+
+
+== 2023-07-10 Journal Entry #1 ==
+date: 2023-07-10
+entry: 1
+
+  I'm concerned about the testing.
+
+  I love the idea of the scripts, and the playback.
+  But it's too brittle right now.
+
+  more detail:
+  -> 2023-07-10 JOURNAL NOTE #1: Comparing/Constrasting SCRIPT system vs. Traditional Python Unit Test
+
+  An idea came out of that, and I think I want to try and figure out
+  how to carry it forwards: I want to create a "holographic
+  projection" of what's going on in the code, while it's running in a
+  "test mode," that tracks bigger pictures of what's going on abstractly.
+
+
+== 2023-07-10 Journal Entry #2 ==
+date: 2023-07-10
+entry: 2
+
+  I'd like to somehow be able to run simulations of the entire system
+  of server and clients.  So, there could be a server, and multiple
+  virtual clients, and then I could somehow orchestrate entire test
+  scenarios like that.
+
+  How would I do that?
+
+  more detail:
+  -> 2023-07-10 MODEL SYSTEMS #1: Developing a Model System
+
+
+== 2023-07-10 Journal Entry #3 ==
+date: 2023-07-10
+entry: 3
+
+  OK, so I've made a little model system.  It's nice?
+  It does in fact model?
+
+  ...
+
+  Seems like a lot of work, and I'm not getting anything enlightening out of it so far.
+
+  more detail:
+  ->2023-07-10 MODEL SYSTEMS #2: Looking at What I've Made
+
+
+== 2023-07-10 Bonus: Today I learned... ==
+date: 2023-07-10
+
+  C-x 3    -- split horizontally...
+  C-x 3    -- do it again...
+  
+  C-x +    >>>> >>> >> !!Wow!! << <<< <<<<
+
+
+== 2023-07-10 JOURNAL NOTE #1: Comparing/Constrasting SCRIPT system vs. Traditional Python Unit Test ==
+subtitle: questioning my scripts approach
+date: 2023-07-10
+
+  What's working:
+  It makes it easy to perform the abstract steps, and observe what's happening, as it runs.
+
+  Is it better than writing the code (for example, in a Unit Test -- like in test_basics.py), and then stepping through in a debugger?
+  What is it about it, that makes it feel better for me?
+
+  * I love the control -- the power to make visualizations, and apply them, while stepping through the test.
+    -- ok, granted!! -- but couldn't I create those visualizations as functions,
+       and then just do that while running in PDB?
+    YES: it can be done
+    NO: the pdb user interface doesn't allow for short expressions very easily
+    
+    -- at a minimum: it's worth trying
+
+  * I love the control -- being able to define the process, listing scripts, manipulating scripts.
+    -- ok, granted!! -- but I should be able to make batch file scripts that do that, too.
+
+  * I love the feeling that I am doing the work as I am monitoring the environment.
+    So, I just go through the execution, and my little robots are noticing all of the things as I do.
+    I say "That's right," or, "That's wrong."
+
+  * I can reach out and define things in a controlled way.
+    When I have an idea in the interaction, I can make it real.
+    It's about a focus on the interactive experience of writing the test.
+
+  * I like the abstract model of the system state.
+    The "holographic projection" onto "what is."
+      -- Perhaps this is what I really need more of.
+         Systems that model the execution environment,
+         that track the execution environment and provide summary snapshot views of what is happening.
+
+  What's weak about my approach?
+
+  * It's brittle.  The "CORRECT" function is too broad.
+    It's a shutgun when I need a sniper.
+    It requires equivalency on things that don't matter.
+
+
+  -> 2023-07-10 HOLOGRAPHIC NOTE #1: Creative Thinking on How To Make Holographic Models
+
+
+== 2023-07-10 HOLOGRAPHIC NOTE #1: Creative Thinking on How To Make Holographic Models ==
+date: 2023-07-10
+
+  I'm looking at messagelogic.py.
+
+  I'm imagining a "holographic projection."
+
+  If the code were in a "testing/scrutiny/holograms-on" mode, --
+  there'd need to be some kind of a mode switch --
+  Then it would take messages as they came in, and "blow them up."
+  It would perform a summary of individual messages, their structure,
+  in a way that is easy to analyze and verify.
+
+  Maybe also user presentable strings for the visualization of messages.
+
+  Some questions that come to mind:
+
+  * What's the interactive framework that I'm imagining these visualizations
+    being used in?
+
+    -- pdb?
+    -- menus-based environ, like "probe.py" today ..?
+
+  * Where does the code go?
+    Does it go in messagelogic.py, or is it segregated off to somewhere else?
+
+  * Is there coordination between the holographic systems, or are they independent?
+
+  * How does the testing mode get checked and invoked (if it's the case)?
+    How OFTEN does the testing mode get checked?
+
+  * How is testing mode represented?
+    Is it a constant in constants.py?
+    Is it a configuration variable?
+    Is it a global variable somewhere else?
+    Does it get turned on-and-off mid-execution?
+
+  * How do I organize testing control for the program as a whole?
+
+
+  My hunch is that I should not worry too much about the whole
+  structure.  As nice as it would be to have a unified theory, it's
+  not something I have the material for yet.  I will have to slog
+  through an organic process, before I can make a unified system.
+
+  This does not mean tolerating a mess, but it does mean going slow.
+
+
+== 2023-07-10 MODEL SYSTEMS #1: Developing a Model System ==
+date: 2023-07-10
+
+  What would happen if I made a MODEL system?
+
+  And in the model system, I trialed different scenarios?
+
+  Would I be able to convey the model system somehow to the real
+  system?
+
+  And would I be able to execute the real system, somehow, in such a
+  way that it runs the same tests as the model system?
+
+  So I think I want to try that.
+
+  ...
+
+  I think it's gotta look something like:
+  * There's a server object.
+    - It's not modelled as an object.
+  * There's a client object.
+    - It's modelled as an identifying integer.
+    - Client numbers are assigned sequentially.
+
+  The server and the clients all have codes for sending messages to one another.
+  The messages are logical, rather than physical.
+
+  * There's gotta be a concept of time and time tracking.
+    - Time is virtual, and fractional.
+    - It represents seconds.
+  * The server and the client can annotate time with things that are happening for them.
+    - The time track will be examined by test code.
+
+  * There are message queues for the server and for the clients.
+    For clients, all messages go to the server.
+    For the server, messages are for particular clients.
+
+
+  * The server and the clients are stimulated by commands, and stimulated by their inputs.
+    - there's an LIFE command, that stimulates the thing to do what it does.
+    - the system only runs in only one role at a time
+    - there's a switching function that switches roles
+
+  * Connection state is modelled externally.
+    - a list of established connections
+    - when a connection is made, both of the parties to the connection need to be notified,
+      when it is their turn
+
+  ----
+
+  Critical design decision:
+  * use switch_to state
+  * refer to server with "S" and clients with #
+  
+
+== 2023-07-10 MODEL SYSTEMS #2: Looking at What I've Made ==
+date: 2023-07-10
+
+  Lot of work.  I'm not sure it's great, though.
+
+  The result, I mean.
+
+
+  Here are the issues:
+  
+  * It feels dramatically disconnected from anything "real."
+    I feel like there should be more reality, behind the model.
+    I'd really like it was really testing something worthwhile, if it
+    were testing actual objects, rather than play-objects.
+    It seems to me like the devil is going to be in the details.
+
+  * The pull of OOP is strong in this one.
+    What I mean is, I feel a pull towards clarity around the
+    boundaries for the server, and the client.
+
+
+  I think I want something a little different.
+  Something like...
+
+  * Full integration with how it will actually be used, from both a
+    server and a client perspective.
+
+  * Full testability with unittest.
+
+  So I need to design the client import library, at the same time as I
+  build the infrastructure for exection.
+
+  I'd also like to carefully control imports.
+  What I mean is, I'd like to be able to know exactly what imports the
+  client needs, and exactly what imports the server needs.
+
+
+  Here there is something of a conflict for me:
+  I really, really dislike, the python "package" system.
+  But, I might need to make peace with it.
+
+  I've talked with Chat-GPT, and I think I'm going to do this:
+
+    from lockstep.exceptions import exceptions
+    from lockstep.logicalconductor import logicalconductor
+    ...
+
+  And I guess, that's just how it's going to be.
+
+  People using the library as a client will do like so:
+
+    from lockstep.jackboot import jackboot
+
+    jackboot.connect("xxx.xxx.xxx.xxx", ####)
+    
+    jackboot.sleep_to_go()
+        ...
+        jackboot.report_in()
+        ...
+        jackboot.done()
+
+

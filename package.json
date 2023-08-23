@@ -1,0 +1,34 @@
+{
+  "APPID": {
+    "GUID": "7531c153-d454-4cd3-8af3-e9e526959ad1",
+    "TAGURI": "lionkimbro@gmail.com,2023-08-22:project:lockstep",
+    "NAME": "lockstep",
+    "TITLE": "Lockstep Synchronization System",
+    "TAGS": "python module package product lockstep conductor jackboot concurrency synchronization",
+    "DESC": "a low-tech, TCP-based synchronization conductor"
+  },
+  "PACKAGE": {
+    "DISTRIBUTIONNAME": "lockstep",
+    "VERSION": "0.1.0",
+    "CLASSIFIERS": [
+      "Programming Language :: Python :: 3",
+      "License :: OSI Approved :: MIT License",
+      "Operating System :: OS Independent"
+    ],
+    "EXECUTIONTYPE": "LIBRARY",
+    "DEPENDENCIES": []
+  },
+  "CHASSIS2023": {
+    "LOGRINGLEN": 20
+  },
+  "FACTORY2023": {
+    "PROJECTID": "0108"
+  },
+  "GITHUB": {
+      "NAME": "lockstep"
+  },
+  "MODULES": [],
+  "RESOURCES": [],
+  "SNOWFLAKES": [],
+  "CONFIG": []
+}
